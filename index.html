@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slide Show</title>
+    <Style>
+        .container{
+            height: fit-content;
+            width: fit-content;
+            margin: 50px auto;
+            position: relative;
+            background-color: thistle;
+        }
+        .heading
+        {
+            text-align: center;
+            font-size: 60px;
+        }
+        .btn
+        {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+        }
+
+        .btn:hover
+        {
+            transform: scale(0.9);
+        }
+
+        .btn-next
+        {
+            right: 20px;
+        }
+
+        .btn-next:hover
+        {
+            translate: 19px;
+        }
+
+        .btn-prev
+        {
+            left: 20px;
+        }
+
+        .btn-prev:hover
+        {
+            translate: -19px;
+        }
+
+    </Style>
+</head>
+<body>
+    <h1 class="heading">BMW M5 Competition</h1>
+    <div class="container">
+        <img src="img/front.jpg" alt="1" id="main-img">
+        <div>
+            <img src="img/next.png" alt="2" class="btn btn-next" onclick="next()">
+            <img src="img/previous.png" alt="3" class="btn btn-prev" onclick="prev()">
+        </div>
+    </div>
+
+    <script>
+        const images = ["img/front.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.27_34d3e464.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.27_35406ff4.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.28_2e27d961.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.28_338bfd3a.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.28_e1144f96.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.29_0976ebea.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.29_6ac86db4.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.29_c329f70a.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.30_c471faf1.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.31_cbbe7448.jpg", "img/WhatsApp Image 2024-11-08 at 12.10.32_00d83416.jpg"];
+
+        let index = 0;
+        const img = document.getElementById("main-img");
+        function next()
+        {
+            if (index < images.length - 1) 
+            {
+                index++;
+                img.src = images[index];
+            }
+            else
+            {
+                index = 0;
+                img.src = images[index];
+            }
+        }
+        
+        function prev()
+        {
+            if (index > 0) 
+            {
+                img.src = images[index - 1];
+                index--;
+            }
+            else
+            {
+                index = images.length - 1;
+                img.src = images[index];
+            }
+        }
+    </script>
+    
+</body>
+</html>
